@@ -10,8 +10,21 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        NSMutableArray *items = [[NSMutableArray alloc] init];
+        
+        //[items addObject:@[@"One",
+                            //@"Two",
+                            //@"Three"]]; // one NSStrin object
+        [items addObject:@"One"];
+        [items addObject:@"Two"];
+        [items insertObject:@"Zero" atIndex:1];
+        
+        NSLog(@"The array contains %lu item(s).", [items count]);
+        for(NSString *item in items) {
+            NSLog(@"%@", item);
+        }
+        
+        items = nil;
     }
     return 0;
 }
