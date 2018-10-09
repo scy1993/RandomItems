@@ -11,12 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JITItem : NSObject
-{
-    NSString *_itemName;
-    NSString *_serialNumber;
-    NSDate *_dateCreated;
-    int _itemValue;
-}
+
 + (instancetype)randomItem;
 - (instancetype)initWithItemName:(NSString *)name
                     serialNumber:(NSString *)sNumber
@@ -26,16 +21,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithItemName:(NSString *)name;
 - (instancetype)init; // unnecessary
 
-- (void)setItemName:(NSString *)name;
-- (NSString *)itemName;
+@property (nonatomic, copy) NSString *itemName;
+@property (nonatomic, copy) NSString *serialNumber;
+@property (nonatomic, readonly, strong) NSDate *dateCreated;
+@property (nonatomic) int itemValue;
+@property (nonatomic, strong) JITItem *containedItem;
+@property (nonatomic, weak) JITItem *container;
 
-- (void)setSerialNumber:(NSString *)sNumber;
-- (NSString *)serialNumber;
-
-- (void)setItemValue:(int)v;
-- (int)itemValue;
-
-- (NSDate *)dateCreated;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -11,10 +11,11 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        for(int i = 0; i < 10; i ++){
-            JITItem *item = [JITItem randomItem];
-            NSLog(@"%@", item);
-        }
+        JITItem *item1 = [JITItem randomItem];
+        JITItem *item2 = [JITItem randomItem];
+        item1.containedItem = item2;
+        
+        item1 = nil;
     }
     return 0;
 }

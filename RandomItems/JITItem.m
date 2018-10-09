@@ -68,40 +68,16 @@
 {
     return [self initWithItemName:@"@John Doe"];
 }
-
-
-- (void)setItemName:(NSString *)name
+// Replace the default setter
+- (void)setContainedItem:(JITItem *)containedItem
 {
-    _itemName = name;
+    _containedItem = containedItem;
+    containedItem.container = self;
 }
-- (NSString *)itemName
+- (void)dealloc
 {
-    return _itemName;
+    NSLog(@"Destroyed %@", self.itemName);
 }
-
-- (void)setSerialNumber:(NSString *)sNumber
-{
-    _serialNumber = sNumber;
-}
-- (NSString *)serialNumber
-{
-    return _serialNumber;
-}
-
-- (void)setItemValue:(int)v
-{
-    _itemValue = v;
-}
-- (int)itemValue
-{
-    return _itemValue;
-}
-
-- (NSDate *)dateCreated
-{
-    return _dateCreated;
-}
-
 - (NSString *)description
 {
     NSString *des = [[NSString alloc] initWithFormat:@"The items is %@ (%@), worth $%d, created on %@", self.itemName, self.serialNumber, self.itemValue, self.dateCreated];
