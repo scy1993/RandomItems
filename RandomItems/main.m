@@ -10,16 +10,11 @@
 #import "JITItem.h"
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        JITItem *redSofa = [[JITItem alloc] initWithItemName:@"Red sofa"
-                                                serialNumber:@"12334A"
-                                                   itemValue:30];
-        JITItem *backpack = [[JITItem alloc] initWithItemName:@"Backpack"
-                                                 serialNumber:@"4JAD12"];
         
-        NSLog(@"%@", redSofa);
-        NSLog(@"%@", backpack);
-        
-        redSofa = backpack = nil;
+        for(int i = 0; i < 10; i ++){
+            JITItem *item = [JITItem randomItem];
+            NSLog(@"%@", item);
+        }
     }
     return 0;
 }

@@ -10,6 +10,33 @@
 
 @implementation JITItem
 
++ (instancetype)randomItem
+{
+    NSArray *randomAdjectiveList = @[@"Fluffy", @"Rusty", @"Shiny"];
+    NSArray *randomNounList = @[@"Bear", @"Spork", @"Mac"];
+    
+    NSInteger adjIndex = arc4random() % [randomAdjectiveList count];
+    NSInteger nIndex = arc4random() % [randomNounList count];
+    // NSInteger is not an object but a long type integer
+    
+    int randomValue = arc4random() % 100;
+    
+    NSString *randomName = [[NSString alloc] initWithFormat:@"%@ %@",
+                            randomAdjectiveList[adjIndex],
+                            randomNounList[nIndex]];
+    
+    NSString *randomSerialNumber = [[NSString alloc] initWithFormat:@"%c%c%c%c%c%c",
+                                    '0' + arc4random()%10,
+                                    'A' + arc4random()%26,
+                                    '0' + arc4random()%10,
+                                    'A' + arc4random()%26,
+                                    '0' + arc4random()%10,
+                                    'A' + arc4random()%26];
+    JITItem *newItem = [[JITItem alloc] initWithItemName:randomName
+                                            serialNumber:randomSerialNumber
+                                               itemValue:randomValue];
+    return newItem;
+}
 - (instancetype)initWithItemName:(NSString *)name
                     serialNumber:(NSString *)sNumber
                        itemValue:(int)v
