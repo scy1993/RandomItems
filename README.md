@@ -1,1 +1,1 @@
-Simple array creation, population and iteration.
+Using initializers to initialize JITItem.

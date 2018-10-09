@@ -7,24 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "JITItem.h"
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSMutableArray *items = [[NSMutableArray alloc] init];
+        JITItem *redSofa = [[JITItem alloc] initWithItemName:@"Red sofa"
+                                                serialNumber:@"12334A"
+                                                   itemValue:30];
+        JITItem *backpack = [[JITItem alloc] initWithItemName:@"Backpack"
+                                                 serialNumber:@"4JAD12"];
         
-        //[items addObject:@[@"One",
-                            //@"Two",
-                            //@"Three"]]; // one NSStrin object
-        [items addObject:@"One"];
-        [items addObject:@"Two"];
-        [items insertObject:@"Zero" atIndex:1];
+        NSLog(@"%@", redSofa);
+        NSLog(@"%@", backpack);
         
-        NSLog(@"The array contains %lu item(s).", [items count]);
-        for(NSString *item in items) {
-            NSLog(@"%@", item);
-        }
-        
-        items = nil;
+        redSofa = backpack = nil;
     }
     return 0;
 }
