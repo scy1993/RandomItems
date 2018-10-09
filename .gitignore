@@ -1,1 +1,4 @@
-xcuserdata\n*~\n.DS_Store\n**/.DS_Store
+xcuserdata
+*~
+.DS_Store
+**/.DS_Store
